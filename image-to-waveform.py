@@ -74,7 +74,7 @@ def generateSignal(freq, tMax, sampleRate):
     # tMax may not coincide with a sample.
     # Correct for this here
     numSamples = int(np.floor(tMax * sampleRate) + 1)
-    tMaxCorrected = numSamples / sampleRate
+    tMaxCorrected = (numSamples - 1) / sampleRate
 
     ts = np.linspace(0, tMaxCorrected, numSamples)
     sig = np.cos(freq * 2 * np.pi * ts)
