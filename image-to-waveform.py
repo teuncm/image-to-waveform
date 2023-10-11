@@ -9,8 +9,8 @@ import soundfile as sf
 INTERP_NN = "nn"
 INTERP_LIN = "lin"
 SAMPLERATE_STANDARD = 44100
-DURATION_DEFAULT = 5
-LIGHTNESS_THRESHOLD = 50
+DURATION_DEFAULT = 2
+LIGHTNESS_THRESHOLD = 250
 
 
 def main(args):
@@ -103,7 +103,7 @@ def readImage(fName):
 
 def thresholdImage(arr):
     """Use a lightness threshold to convert image to binary array."""
-    mask = arr > LIGHTNESS_THRESHOLD
+    mask = arr < LIGHTNESS_THRESHOLD
     arr[mask] = 1
     arr[~mask] = 0
 
