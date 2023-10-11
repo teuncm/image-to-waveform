@@ -1,5 +1,5 @@
-# Author: Teun Mathijssen (github.com/teuncm)
-# Derived from youtube.com/watch?v=qeUAHHPt-LY
+# Author: Teun Mathijssen (https://github.com/teuncm)
+# Derived from https://www.youtube.com/watch?v=qeUAHHPt-LY
 
 import argparse
 import numpy as np
