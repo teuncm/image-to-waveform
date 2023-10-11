@@ -19,7 +19,7 @@ def main(args):
         sig = normSignal(monoSignal(sig))
     else:
         sampleRate = args.sampleRate
-        frequency = args.frequency if args.frequency else sampleRate/2
+        frequency = args.frequency if args.frequency else sampleRate / 2
         sig = generateSignal(frequency, args.duration, sampleRate)
 
     ts = getTimeframe(sig, sampleRate)
@@ -71,7 +71,12 @@ def normSignal(x):
 
 def generateSignal(freq, tMax, sampleRate):
     """Generate a simple sine wave over the given timeframe."""
-    ts = np.linspace(0, tMax, int(sampleRate * tMax + 1))
+    # tMax may not coincide with a sample.
+    # Correct for this here
+    numSamples = int(np.floor(tMax * sampleRate) + 1)
+    tMaxCorrected = numSamples / sampleRate
+
+    ts = np.linspace(0, tMaxCorrected, numSamples)
     sig = np.cos(freq * 2 * np.pi * ts)
 
     return sig
