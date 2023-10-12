@@ -63,7 +63,7 @@ def clipSignal(sig):
 
 def normSignal(x):
     """Normalize an audio signal."""
-    norm = np.max(np.abs(y))
+    norm = np.max(np.abs(x))
     y = x / norm
 
     return y
